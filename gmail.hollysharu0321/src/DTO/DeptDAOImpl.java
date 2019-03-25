@@ -65,10 +65,11 @@ public class DeptDAOImpl implements DeptDAO {
 		int result = -1;
 		try (
 				// 데이터베이스 연결
-				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.100:1521/XEPDB1", "user08",
-						"user08");
-				PreparedStatement pstmt = con
-						.prepareStatement("update mydept set dname = ?, loc = ? where deptno = ?");) {
+				Connection con = DriverManager.getConnection(
+						"jdbc:oracle:thin:@192.168.0.100:1521/XEPDB1",
+						"user08", "user08");
+				PreparedStatement pstmt = con.prepareStatement(
+						"update mydept set dname = ?, loc = ? where deptno = ?");) {
 			// sql의 ?에 데이터 바인딩
 			pstmt.setString(1, myDEPT.getDname());
 			pstmt.setString(2, myDEPT.getLoc());
@@ -88,9 +89,11 @@ public class DeptDAOImpl implements DeptDAO {
 		int result = -1;
 		try (
 				// 데이터베이스 연결
-				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.100:1521/XEPDB1", "user08",
+				Connection con = DriverManager.getConnection(
+						"jdbc:oracle:thin:@192.168.0.100:1521/XEPDB1", "user08",
 						"user08");
-				PreparedStatement pstmt = con.prepareStatement("delete from mydept where deptno = ?");) {
+				PreparedStatement pstmt = con.prepareStatement(
+						"delete from mydept where deptno = ?");) {
 			// sql의 ?에 데이터 바인딩
 			pstmt.setInt(1, deptno);
 
